@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: ms-salas
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import: "optional:configserver:http://localhost:8888"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+    import: "optional:configserver:http://configserver:8888"
